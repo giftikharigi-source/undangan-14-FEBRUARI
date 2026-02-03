@@ -10,7 +10,6 @@
             --cream: #fdfaf4;
             --gold: #b8926a;
             --dark: #4a4a4a;
-            --ocbc: #ed1c24;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; color: var(--dark); background-color: white; scroll-behavior: smooth; }
@@ -34,20 +33,19 @@
         .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; color: var(--gold); }
         .translation { font-style: italic; font-size: 0.95rem; max-width: 650px; line-height: 1.8; padding: 0 10px; }
 
-        /* General Styling */
-        .intro { font-size: 0.9rem; max-width: 550px; line-height: 1.8; margin-bottom: 40px; }
-        .mempelai-box { margin-bottom: 40px; }
-        .mempelai-name { font-size: 2.8rem; font-family: 'Great Vibes'; color: var(--gold); }
-        .parents { font-size: 0.85rem; font-weight: 300; margin-top: 5px; }
+        /* Mempelai Section */
+        .mempelai-name { font-size: 2.8rem; font-family: 'Great Vibes'; color: var(--gold); margin-bottom: 5px; }
+        .parents { font-size: 0.85rem; font-weight: 300; margin-bottom: 30px; }
 
         /* Cards */
         .card { background: white; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); width: 100%; max-width: 450px; margin-bottom: 20px; }
         .barcode { width: 140px; height: 140px; margin: 25px 0; border: 1px solid #eee; padding: 5px; }
-        .btn { display: inline-block; background: var(--gold); color: white; text-decoration: none; padding: 12px 35px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; }
+        .btn { display: inline-block; background: var(--gold); color: white; text-decoration: none; padding: 12px 35px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; }
+        .btn:hover { background: #9c7b56; }
 
-        /* Bank Section */
+        /* Bank Items */
         .bank-item { display: flex; align-items: center; text-align: left; background: #fafafa; padding: 15px; border-radius: 12px; margin-bottom: 15px; gap: 15px; border: 1px solid #eee; }
-        .bank-logo { width: 80px; height: auto; object-fit: contain; }
+        .bank-logo { width: 80px; height: auto; max-height: 40px; object-fit: contain; }
         .bank-details p { font-size: 0.85rem; line-height: 1.4; }
 
         /* Countdown */
@@ -84,19 +82,15 @@
     </section>
 
     <section>
-        <p class="intro">Assalamu’alaikum Warahmatullahi Wabarakatuh.<br><br>Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang bapak dan ibu untuk hadir dalam resepsi pernikahan kami:</p>
+        <p style="font-size: 0.9rem; max-width: 550px; line-height: 1.8; margin-bottom: 40px;">Assalamu’alaikum Warahmatullahi Wabarakatuh.<br><br>Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang bapak dan ibu untuk hadir dalam resepsi pernikahan kami:</p>
         
-        <div class="mempelai-box">
-            <div class="mempelai-name">Ghali Iftikhari</div>
-            <p class="parents">Putra pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
-        </div>
+        <div class="mempelai-name">Ghali Iftikhari</div>
+        <p class="parents">Anak pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
         
-        <p style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold); margin-bottom: 40px;">&</p>
+        <p style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold); margin: 10px 0;">&</p>
         
-        <div class="mempelai-box">
-            <div class="mempelai-name">Lili Vidia</div>
-            <p class="parents">Putri Kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
-        </div>
+        <div class="mempelai-name">Lili Vidia</div>
+        <p class="parents">Anak Kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
     </section>
 
     <section class="bg-cream">
@@ -105,9 +99,9 @@
             <p style="margin: 20px 0;">Sabtu, 14 Februari 2026<br>08:00 - Selesai</p>
             <p><strong>Masjid Jami Thoriqul Jannah</strong><br>Kab. Bandung, Jawa Barat</p>
             
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" class="barcode" alt="QR Lokasi Akad">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/MasjidThoriqulJannah" class="barcode" alt="QR Akad">
             <br>
-            <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn">PETUNJUK LOKASI</a>
+            <a href="https://www.google.com/maps/search/Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn">LIHAT LOKASI</a>
         </div>
     </section>
 
@@ -117,21 +111,21 @@
             <p style="margin: 20px 0;">Sabtu, 14 Februari 2026<br>11:00 - Selesai</p>
             <p><strong>Waroeng Mas Pri</strong><br>Soreang, Kab Bandung, Jawa barat</p>
             
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" class="barcode" alt="QR Lokasi Resepsi">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/WaroengMasPri" class="barcode" alt="QR Resepsi">
             <br>
-            <a href="https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" target="_blank" class="btn">PETUNJUK LOKASI</a>
+            <a href="https://www.google.com/maps/search/Waroeng+Mas+Pri+Soreang" target="_blank" class="btn">LIHAT LOKASI</a>
         </div>
     </section>
 
     <section class="bg-cream">
         <h2>Amplop Digital</h2>
-        <p class="intro" style="margin-bottom: 25px;">Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui:</p>
+        <p style="font-size: 0.9rem; margin-bottom: 25px;">Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui:</p>
         
         <div class="card">
             <div class="bank-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/OCBC_Bank_logo.svg" class="bank-logo" alt="Logo OCBC">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" class="bank-logo" alt="Logo OCBC">
                 <div class="bank-details">
-                    <p style="color: var(--ocbc); font-weight: 600;">Bank OCBC NISP</p>
+                    <p><strong>Bank OCBC NISP</strong></p>
                     <p>6938-1425-6394</p>
                     <p>a.n GHALI IFTIKHARI</p>
                 </div>
@@ -140,7 +134,7 @@
             <div class="bank-item">
                 <img src="https://upload.wikimedia.org/wikipedia/id/thumb/f/fa/Bank_Mandiri_logo.svg/1200px-Bank_Mandiri_logo.svg.png" class="bank-logo" alt="Logo Mandiri">
                 <div class="bank-details">
-                    <p style="color: #003d79; font-weight: 600;">Bank Mandiri</p>
+                    <p><strong>Bank Mandiri</strong></p>
                     <p>1300016257308</p>
                     <p>a.n LILI VIDIA</p>
                 </div>
