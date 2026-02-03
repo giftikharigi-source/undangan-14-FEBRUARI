@@ -4,57 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Ghali & Lili</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Amiri&display=swap" rel="stylesheet">
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+        :root {
+            --primary-gold: #bca371;
+            --dark-brown: #4a3f35;
+            --soft-beige: #fdfaf6;
         }
+
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            scroll-snap-type: y mandatory;
+            overflow-x: hidden;
+            background-color: var(--soft-beige);
+        }
+
         section {
             height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            scroll-snap-align: start;
             position: relative;
-            color: white;
             padding: 20px;
+            box-sizing: border-box;
         }
+
         /* Slide 1: Cover */
         #slide1 {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-        }
-        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; margin-bottom: 10px; }
-        .date { font-size: 1.5rem; letter-spacing: 3px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 10px 20px; }
-
-        /* Slide 2: Ayat Al-Quran */
-        #slide2 {
-            background: #fdfaf6;
-            color: #4a4a4a;
-        }
-        .quran-container { max-width: 800px; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .arabic { font-size: 1.8rem; margin-bottom: 20px; line-height: 3rem; color: #8e735b; }
-        .translation { font-style: italic; font-size: 0.9rem; line-height: 1.6rem; }
-        audio { margin-top: 20px; width: 100%; max-width: 300px; }
-
-        /* Slide 3: Mempelai */
-        #slide3 {
-            background: #8e735b;
             color: white;
         }
-        .mempelai { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin: 20px 0; }
-        .and { font-size: 2rem; opacity: 0.7; }
+
+        h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5rem); margin: 10px 0; }
+        .date-badge { 
+            font-weight: 300; letter-spacing: 5px; 
+            border: 1px solid white; padding: 10px 30px; 
+            margin-top: 20px;
+        }
+
+        /* Slide 2: Ar-Rum 21 */
+        #slide2 {
+            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+                              url('https://www.transparenttextures.com/patterns/paper.png');
+            color: var(--dark-brown);
+        }
+
+        .quran-box { max-width: 700px; padding: 30px; border: 2px solid var(--primary-gold); border-radius: 50px 0 50px 0; }
+        .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; }
+        .translation { font-size: 0.9rem; line-height: 1.6; font-style: italic; color: #666; }
+        audio { margin-top: 25px; height: 35px; border-radius: 5px; }
+
+        /* Slide 3: Mempelai & Acara */
+        #slide3 {
+            background-color: var(--soft-beige);
+            color: var(--dark-brown);
+            height: auto; min-height: 100vh; /* Agar konten panjang tidak terpotong */
+            padding: 60px 20px;
+        }
+
+        .intro { font-size: 0.9rem; max-width: 600px; margin-bottom: 30px; line-height: 1.8; }
+        .nama-mempelai { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--primary-gold); margin: 10px 0 5px 0; }
+        .orang-tua { font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8; }
         
-        /* Navigasi Sederhana */
-        .scroll-hint { position: absolute; bottom: 20px; font-size: 0.8rem; opacity: 0.8; animation: bounce 2s infinite; }
+        .event-box {
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: 30px; width: 100%; max-width: 500px;
+        }
+
+        .maps-qr { margin-top: 20px; }
+        .maps-qr img { width: 120px; height: 120px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-maps {
+            display: inline-block; margin-top: 15px; padding: 10px 20px;
+            background: var(--primary-gold); color: white; text-decoration: none;
+            border-radius: 25px; font-size: 0.8rem; font-weight: 600;
+        }
+
+        .scroll-down { position: absolute; bottom: 20px; font-size: 0.7rem; letter-spacing: 2px; animation: bounce 2s infinite; }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
     </style>
 </head>
@@ -63,29 +97,49 @@
     <section id="slide1">
         <p>THE WEDDING OF</p>
         <h1>Ghali & Lili</h1>
-        <div class="date">14 FEBRUARI 2026</div>
-        <div class="scroll-hint">Scroll ke bawah ↓</div>
+        <div class="date-badge">14.02.2026</div>
+        <div class="scroll-down">SCROLL KE BAWAH</div>
     </section>
 
     <section id="slide2">
-        <div class="quran-container">
-            <h3>Ar-Rum: 21</h3>
-            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
-            <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."</p>
+        <div class="quran-box">
+            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰtٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+            <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)</p>
             
             <audio controls>
                 <source src="https://www.tanzil.net/res/audio/afasy/030021.mp3" type="audio/mpeg">
-                Browser Anda tidak mendukung elemen audio.
+                Browser Anda tidak mendukung audio.
             </audio>
         </div>
     </section>
 
     <section id="slide3">
-        <p>Kami yang berbahagia,</p>
-        <div class="mempelai">Ghali Iftikhari</div>
-        <div class="and">&</div>
-        <div class="mempelai">Lili Vidia</div>
-        <p style="margin-top: 40px; font-size: 0.9rem; letter-spacing: 2px;">SAMPAI JUMPA DI HARI BAHAGIA KAMI</p>
+        <div class="intro">
+            Assalamu’alaikum Warahmatullahi Wabarakatuh.<br>
+            Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang Bapak/Ibu/Saudara/i untuk hadir dalam resepsi pernikahan kami:
+        </div>
+
+        <div class="nama-mempelai">Ghali Iftikhari</div>
+        <div class="orang-tua">Putra pertama dari Bpk. Ismail Effendy & Ibu Mahya Hidayati</div>
+        
+        <div style="font-size: 1.5rem; margin: 10px 0;">&</div>
+
+        <div class="nama-mempelai">Lili Vidia</div>
+        <div class="orang-tua">Putri kedua dari (Alm) Bpk. Holidin & Ibu Martini</div>
+
+        <div class="event-box">
+            <strong style="letter-spacing: 2px;">AKAD NIKAH</strong>
+            <p>Sabtu, 14 Februari 2026<br>Pukul 08.00 WIB - Selesai</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <strong>LOKASI ACARA</strong>
+            <p>Masjid Jami Thoriqul Jannah<br>Kab. Bandung, Jawa Barat</p>
+
+            <div class="maps-qr">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" alt="QR Code Lokasi">
+                <br>
+                <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn-maps">Buka Google Maps</a>
+            </div>
+        </div>
     </section>
 
 </body>
