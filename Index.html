@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Ghali & Lili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            color: white;
+            padding: 20px;
+        }
+        /* Slide 1: Cover */
+        #slide1 {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; margin-bottom: 10px; }
+        .date { font-size: 1.5rem; letter-spacing: 3px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 10px 20px; }
+
+        /* Slide 2: Ayat Al-Quran */
+        #slide2 {
+            background: #fdfaf6;
+            color: #4a4a4a;
+        }
+        .quran-container { max-width: 800px; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .arabic { font-size: 1.8rem; margin-bottom: 20px; line-height: 3rem; color: #8e735b; }
+        .translation { font-style: italic; font-size: 0.9rem; line-height: 1.6rem; }
+        audio { margin-top: 20px; width: 100%; max-width: 300px; }
+
+        /* Slide 3: Mempelai */
+        #slide3 {
+            background: #8e735b;
+            color: white;
+        }
+        .mempelai { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin: 20px 0; }
+        .and { font-size: 2rem; opacity: 0.7; }
+        
+        /* Navigasi Sederhana */
+        .scroll-hint { position: absolute; bottom: 20px; font-size: 0.8rem; opacity: 0.8; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+    </style>
+</head>
+<body>
+
+    <section id="slide1">
+        <p>THE WEDDING OF</p>
+        <h1>Ghali & Lili</h1>
+        <div class="date">14 FEBRUARI 2026</div>
+        <div class="scroll-hint">Scroll ke bawah ↓</div>
+    </section>
+
+    <section id="slide2">
+        <div class="quran-container">
+            <h3>Ar-Rum: 21</h3>
+            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+            <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir."</p>
+            
+            <audio controls>
+                <source src="https://www.tanzil.net/res/audio/afasy/030021.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung elemen audio.
+            </audio>
+        </div>
+    </section>
+
+    <section id="slide3">
+        <p>Kami yang berbahagia,</p>
+        <div class="mempelai">Ghali Iftikhari</div>
+        <div class="and">&</div>
+        <div class="mempelai">Lili Vidia</div>
+        <p style="margin-top: 40px; font-size: 0.9rem; letter-spacing: 2px;">SAMPAI JUMPA DI HARI BAHAGIA KAMI</p>
+    </section>
+
+</body>
+</html>
