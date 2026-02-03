@@ -7,140 +7,131 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Amiri&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #bca371;
-            --dark-brown: #4a3f35;
-            --soft-beige: #fdfaf6;
+            --bg-color: #fcfcfc;
+            --text-dark: #333333;
+            --accent-gold: #d4af37;
+            --soft-gray: #f2f2f2;
         }
 
+        * { box-sizing: border-box; }
         body, html {
             margin: 0; padding: 0;
             font-family: 'Montserrat', sans-serif;
-            scroll-snap-type: y mandatory;
-            overflow-x: hidden;
-            background-color: var(--soft-beige);
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
         }
 
         section {
-            height: 100vh;
-            width: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            scroll-snap-align: start;
-            position: relative;
-            padding: 20px;
-            box-sizing: border-box;
+            padding: 40px 20px;
         }
 
-        /* Slide 1: Cover */
+        /* Slide 1: Minimalist Cover */
         #slide1 {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069&auto=format&fit=crop');
+            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
+                        url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            color: white;
         }
+        .title { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: var(--text-dark); margin: 0; }
+        .date-box { font-size: 1.2rem; letter-spacing: 4px; margin-top: 15px; border-top: 1px solid var(--text-dark); border-bottom: 1px solid var(--text-dark); padding: 10px 25px; }
 
-        h1 { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5rem); margin: 10px 0; }
-        .date-badge { 
-            font-weight: 300; letter-spacing: 5px; 
-            border: 1px solid white; padding: 10px 30px; 
-            margin-top: 20px;
-        }
-
-        /* Slide 2: Ar-Rum 21 */
+        /* Slide 2: Ar-Rum 21 & Auto Audio */
         #slide2 {
-            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
-                              url('https://www.transparenttextures.com/patterns/paper.png');
-            color: var(--dark-brown);
+            background-color: white;
+            border-top: 1px solid var(--soft-gray);
         }
-
-        .quran-box { max-width: 700px; padding: 30px; border: 2px solid var(--primary-gold); border-radius: 50px 0 50px 0; }
-        .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; }
-        .translation { font-size: 0.9rem; line-height: 1.6; font-style: italic; color: #666; }
-        audio { margin-top: 25px; height: 35px; border-radius: 5px; }
+        .quran-img { width: 100%; max-width: 500px; margin-bottom: 30px; opacity: 0.9; }
+        .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; color: var(--accent-gold); }
+        .translation { font-size: 0.9rem; line-height: 1.8; font-style: italic; max-width: 600px; padding: 0 20px; }
 
         /* Slide 3: Mempelai & Acara */
         #slide3 {
-            background-color: var(--soft-beige);
-            color: var(--dark-brown);
-            height: auto; min-height: 100vh; /* Agar konten panjang tidak terpotong */
-            padding: 60px 20px;
+            background-color: var(--soft-gray);
         }
-
-        .intro { font-size: 0.9rem; max-width: 600px; margin-bottom: 30px; line-height: 1.8; }
-        .nama-mempelai { font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--primary-gold); margin: 10px 0 5px 0; }
-        .orang-tua { font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8; }
+        .intro-text { font-size: 0.9rem; line-height: 1.8; max-width: 550px; margin-bottom: 40px; }
+        .name { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--accent-gold); margin-bottom: 5px; }
+        .parents { font-size: 0.85rem; margin-bottom: 25px; font-weight: 300; }
         
-        .event-box {
-            background: white; padding: 30px; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-top: 30px; width: 100%; max-width: 500px;
+        .event-card {
+            background: white; padding: 40px; border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 500px; width: 100%;
         }
-
-        .maps-qr { margin-top: 20px; }
-        .maps-qr img { width: 120px; height: 120px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .barcode-box { margin-top: 25px; }
+        .barcode-box img { width: 130px; height: 130px; }
         .btn-maps {
-            display: inline-block; margin-top: 15px; padding: 10px 20px;
-            background: var(--primary-gold); color: white; text-decoration: none;
-            border-radius: 25px; font-size: 0.8rem; font-weight: 600;
+            display: inline-block; margin-top: 15px; padding: 12px 25px;
+            background: var(--text-dark); color: white; text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s;
         }
+        .btn-maps:hover { background: var(--accent-gold); }
 
-        .scroll-down { position: absolute; bottom: 20px; font-size: 0.7rem; letter-spacing: 2px; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+        /* Audio Player hidden */
+        #bgAudio { display: none; }
     </style>
 </head>
 <body>
 
+    <audio id="bgAudio" autoplay loop>
+        <source src="https://www.tanzil.net/res/audio/afasy/030021.mp3" type="audio/mpeg">
+    </audio>
+
     <section id="slide1">
-        <p>THE WEDDING OF</p>
-        <h1>Ghali & Lili</h1>
-        <div class="date-badge">14.02.2026</div>
-        <div class="scroll-down">SCROLL KE BAWAH</div>
+        <p style="letter-spacing: 3px; font-size: 0.8rem;">THE WEDDING OF</p>
+        <h1 class="title">Ghali & Lili</h1>
+        <div class="date-box">14 FEBRUARI 2026</div>
     </section>
 
     <section id="slide2">
-        <div class="quran-box">
-            <p class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰtٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
-            <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)</p>
-            
-            <audio controls>
-                <source src="https://www.tanzil.net/res/audio/afasy/030021.mp3" type="audio/mpeg">
-                Browser Anda tidak mendukung audio.
-            </audio>
+        <img src="https://images.unsplash.com/photo-1584281723509-a17894d80a3a?q=80&w=2000&auto=format&fit=crop" class="quran-img" alt="Background Islami">
+        <div class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</div>
+        <div class="translation">
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)
         </div>
     </section>
 
     <section id="slide3">
-        <div class="intro">
-            Assalamu’alaikum Warahmatullahi Wabarakatuh.<br>
+        <div class="intro-text">
+            Bismillahirrahmannirrahim. <br>
             Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang Bapak/Ibu/Saudara/i untuk hadir dalam resepsi pernikahan kami:
         </div>
 
-        <div class="nama-mempelai">Ghali Iftikhari</div>
-        <div class="orang-tua">Putra pertama dari Bpk. Ismail Effendy & Ibu Mahya Hidayati</div>
+        <div class="name">Ghali Iftikhari</div>
+        <div class="parents">Putra pertama dari Bpk. Ismail Effendy & Ibu Mahya Hidayati</div>
         
-        <div style="font-size: 1.5rem; margin: 10px 0;">&</div>
+        <div style="font-size: 1.5rem; margin: 10px 0; font-family: 'Great Vibes';">&</div>
 
-        <div class="nama-mempelai">Lili Vidia</div>
-        <div class="orang-tua">Putri kedua dari (Alm) Bpk. Holidin & Ibu Martini</div>
+        <div class="name">Lili Vidia</div>
+        <div class="parents">Putri kedua dari (Alm) Bpk. Holidin & Ibu Martini</div>
 
-        <div class="event-box">
-            <strong style="letter-spacing: 2px;">AKAD NIKAH</strong>
-            <p>Sabtu, 14 Februari 2026<br>Pukul 08.00 WIB - Selesai</p>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            <strong>LOKASI ACARA</strong>
-            <p>Masjid Jami Thoriqul Jannah<br>Kab. Bandung, Jawa Barat</p>
-
-            <div class="maps-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" alt="QR Code Lokasi">
+        <div class="event-card">
+            <h3 style="letter-spacing: 2px; font-weight: 600;">AKAD NIKAH</h3>
+            <p>Sabtu, 14 Februari 2026<br>08.00 WIB - Selesai</p>
+            <p><strong>Masjid Jami Thoriqul Jannah</strong><br>Kab. Bandung, Jawa Barat</p>
+            
+            <div class="barcode-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" alt="Barcode Lokasi">
                 <br>
-                <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn-maps">Buka Google Maps</a>
+                <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn-maps">PETUNJUK LOKASI</a>
             </div>
         </div>
     </section>
+
+    <script>
+        // Kebijakan browser terbaru seringkali memblokir autoplay audio sebelum ada interaksi.
+        // Script ini mencoba memutar audio segera setelah pengguna melakukan klik pertama kali di halaman.
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('bgAudio');
+            audio.play();
+        }, { once: true });
+    </script>
 
 </body>
 </html>
