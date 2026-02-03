@@ -9,52 +9,61 @@
         :root {
             --cream: #f9f5f0;
             --gold: #b8926a;
-            --text: #4a4a4a;
+            --dark: #4a4a4a;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; color: var(--text); background-color: white; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); background-color: white; overflow-x: hidden; scroll-behavior: smooth; }
         
-        section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; }
+        section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; }
         .bg-cream { background-color: var(--cream); }
+        
         h1, h2 { font-family: 'Great Vibes', cursive; color: var(--gold); }
-        h1 { font-size: 4rem; margin-bottom: 10px; }
-        h2 { font-size: 2.8rem; margin: 20px 0; }
+        h1 { font-size: clamp(3rem, 10vw, 4.5rem); margin-bottom: 10px; }
+        h2 { font-size: clamp(2.5rem, 8vw, 3rem); margin: 20px 0; }
 
         /* Slide 1: Cover */
         #cover {
-            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
-                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070');
+            background-size: cover; background-position: center; color: white;
         }
-        .date-box { font-size: 1.2rem; letter-spacing: 5px; border-top: 1px solid var(--text); border-bottom: 1px solid var(--text); padding: 10px 20px; margin-top: 20px; }
+        #cover h1 { color: white; }
+        .date-box { font-size: 1.2rem; letter-spacing: 5px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 10px 20px; margin-top: 20px; }
 
         /* Slide 2: Ar-Rum */
         .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; color: var(--gold); }
-        .translation { font-style: italic; font-size: 0.9rem; max-width: 600px; line-height: 1.6; }
+        .translation { font-style: italic; font-size: 0.95rem; max-width: 650px; line-height: 1.8; }
 
-        /* General Content Style */
-        .intro { font-size: 0.9rem; max-width: 550px; line-height: 1.8; margin-bottom: 30px; }
-        .parents { font-size: 0.85rem; font-weight: 300; margin-bottom: 20px; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 450px; }
-        .barcode { width: 140px; height: 140px; margin: 20px 0; }
-        .btn { display: inline-block; background: var(--gold); color: white; text-decoration: none; padding: 10px 25px; border-radius: 25px; font-size: 0.8rem; margin-top: 10px; }
+        /* Slide 3: Mempelai */
+        .intro { font-size: 0.9rem; max-width: 550px; line-height: 1.8; margin-bottom: 30px; padding: 0 10px; }
+        .parents { font-size: 0.85rem; font-weight: 300; margin-bottom: 15px; }
+
+        /* Card & Barcode */
+        .card { background: white; padding: 35px 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); width: 100%; max-width: 450px; margin-top: 20px; }
+        .barcode { width: 150px; height: 150px; margin: 20px 0; border: 1px solid #eee; padding: 5px; }
+        .btn { display: inline-block; background: var(--gold); color: white; text-decoration: none; padding: 12px 30px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; margin-top: 10px; }
+
+        /* Amplop Digital */
+        .bank-box { text-align: left; background: #fafafa; padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center; gap: 15px; }
+        .bank-logo { width: 60px; height: auto; object-fit: contain; }
+        .bank-info p { font-size: 0.85rem; line-height: 1.4; }
 
         /* Countdown */
-        #timer { display: flex; gap: 15px; margin-top: 30px; }
-        .timer-segment { background: var(--gold); color: white; padding: 15px; border-radius: 10px; min-width: 70px; }
+        #timer { display: flex; gap: 10px; margin-top: 30px; }
+        .timer-segment { background: var(--gold); color: white; padding: 15px; border-radius: 12px; min-width: 70px; }
         .timer-num { display: block; font-size: 1.5rem; font-weight: 600; }
-        .timer-label { font-size: 0.7rem; text-transform: uppercase; }
+        .timer-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Overlay */
-        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.5s; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.8s; }
     </style>
 </head>
 <body>
 
     <div id="overlay">
-        <h1>Ghali & Lili</h1>
-        <p style="margin-bottom: 20px;">14 Februari 2026</p>
-        <button onclick="startApp()" class="btn">Buka Undangan</button>
+        <h1 style="font-size: 3rem; margin-bottom: 10px;">Ghali & Lili</h1>
+        <p style="margin-bottom: 30px; letter-spacing: 2px;">SABTU, 14 FEBRUARI 2026</p>
+        <button onclick="startApp()" class="btn" style="cursor: pointer;">BUKA UNDANGAN</button>
     </div>
 
     <audio id="myAudio" loop>
@@ -62,13 +71,13 @@
     </audio>
 
     <section id="cover">
-        <p style="letter-spacing: 3px;">THE WEDDING OF</p>
+        <p style="letter-spacing: 4px;">THE WEDDING OF</p>
         <h1>Ghali & Lili</h1>
         <div class="date-box">14 . 02 . 2026</div>
     </section>
 
     <section>
-        <div class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</div>
+        <div class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَzْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</div>
         <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)</p>
     </section>
 
@@ -76,71 +85,101 @@
         <p class="intro">Assalamu’alaikum Warahmatullahi Wabarakatuh.<br>Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang bapak dan ibu untuk hadir dalam resepsi pernikahan kami:</p>
         <h2>Ghali Iftikhari</h2>
         <p class="parents">Anak pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
-        <p style="font-family: 'Great Vibes'; font-size: 2rem; color: var(--gold);">&</p>
+        <p style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold);">&</p>
         <h2>Lili Vidia</h2>
         <p class="parents">Anak Kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
     </section>
 
     <section class="bg-cream">
         <div class="card">
-            <h3 style="letter-spacing: 3px;">AKAD NIKAH</h3>
-            <p style="margin: 15px 0;">Sabtu, 14 Februari 2026<br>08:00 - Selesai</p>
+            <h3 style="letter-spacing: 3px; font-weight: 600;">AKAD NIKAH</h3>
+            <p style="margin: 20px 0;">Sabtu, 14 Februari 2026<br>08:00 - Selesai</p>
             <p><strong>Masjid Jami Thoriqul Jannah</strong><br>Kab. Bandung, Jawa Barat</p>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" class="barcode" alt="QR Maps">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" class="barcode" alt="QR Lokasi Akad">
             <br>
-            <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn">Buka Google Maps</a>
+            <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn">LIHAT LOKASI</a>
         </div>
     </section>
 
     <section class="bg-cream">
         <div class="card">
-            <h3 style="letter-spacing: 3px;">RESEPSI</h3>
-            <p style="margin: 15px 0;">Sabtu, 14 Februari 2026<br>11:00 - Selesai</p>
+            <h3 style="letter-spacing: 3px; font-weight: 600;">RESEPSI</h3>
+            <p style="margin: 20px 0;">Sabtu, 14 Februari 2026<br>11:00 - Selesai</p>
             <p><strong>Waroeng Mas Pri</strong><br>Soreang, Kab Bandung, Jawa barat</p>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" class="barcode" alt="QR Maps">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" class="barcode" alt="QR Lokasi Resepsi">
             <br>
-            <a href="https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" target="_blank" class="btn">Buka Google Maps</a>
+            <a href="https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" target="_blank" class="btn">LIHAT LOKASI</a>
         </div>
     </section>
 
     <section class="bg-cream">
-        <h2>Amplop Digital</h2>
+        <h3 style="letter-spacing: 3px; font-weight: 600; margin-bottom: 20px;">AMPLOP DIGITAL</h3>
         <p class="intro">Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui:</p>
+        
         <div class="card">
-            <p><strong>Bank BCA</strong><br>1234567890<br>a.n Ghali Iftikhari</p>
-            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-            <p><strong>Konfirmasi Kehadiran</strong></p>
-            <a href="https://wa.me/628123456789?text=Halo+Ghali+Lili,+Saya+akan+hadir" class="btn">Konfirmasi via WhatsApp</a>
+            <div class="bank-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/OCBC_Bank_logo.svg" class="bank-logo" alt="Logo OCBC">
+                <div class="bank-info">
+                    <p><strong>Bank OCBC NISP</strong></p>
+                    <p>6938 1425 6394</p>
+                    <p>a.n GHALI IFTIKHARI</p>
+                </div>
+            </div>
+            <div class="bank-box">
+                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/f/fa/Bank_Mandiri_logo.svg/1200px-Bank_Mandiri_logo.svg.png" class="bank-logo" alt="Logo Mandiri">
+                <div class="bank-info">
+                    <p><strong>Bank Mandiri</strong></p>
+                    <p>1300016257308</p>
+                    <p>a.n GHALI IFTIKHARI</p>
+                </div>
+            </div>
+            
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+            <p style="margin-bottom: 10px; font-size: 0.9rem;"><strong>Konfirmasi Kehadiran</strong></p>
+            <a href="https://wa.me/628123456789?text=Halo+Ghali+Lili,+Saya+ingin+konfirmasi+kehadiran" class="btn" style="background:#25D366;">KONFIRMASI WHATSAPP</a>
         </div>
     </section>
 
     <section class="bg-cream">
-        <p>HARI BAHAGIA KAMI</p>
+        <p style="letter-spacing: 3px;">MENGHITUNG HARI</p>
         <div id="timer">
             <div class="timer-segment"><span id="days" class="timer-num">00</span><span class="timer-label">Hari</span></div>
             <div class="timer-segment"><span id="hours" class="timer-num">00</span><span class="timer-label">Jam</span></div>
             <div class="timer-segment"><span id="minutes" class="timer-num">00</span><span class="timer-label">Menit</span></div>
             <div class="timer-segment"><span id="seconds" class="timer-num">00</span><span class="timer-label">Detik</span></div>
         </div>
-        <p style="margin-top: 40px; font-family: 'Great Vibes'; font-size: 2rem;">Sampai Jumpa!</p>
+        <p style="margin-top: 50px; font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold);">Sampai Jumpa di Hari Bahagia Kami!</p>
     </section>
 
     <script>
         function startApp() {
-            document.getElementById('overlay').style.opacity = '0';
-            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 500);
-            document.getElementById('myAudio').play();
+            const overlay = document.getElementById('overlay');
+            const audio = document.getElementById('myAudio');
+            overlay.style.opacity = '0';
+            setTimeout(() => { overlay.style.display = 'none'; }, 800);
+            audio.play().catch(e => console.log("Autoplay blocked"));
         }
 
         // Countdown Timer
-        const targetDate = new Date("Feb 14, 2026 08:00:00").getTime();
-        setInterval(function() {
+        const weddingDate = new Date("Feb 14, 2026 08:00:00").getTime();
+        const countdownFunc = setInterval(function() {
             const now = new Date().getTime();
-            const distance = targetDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            const distance = weddingDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d < 10 ? "0"+d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0"+h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0"+m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0"+s : s;
+
+            if (distance < 0) {
+                clearInterval(countdownFunc);
+                document.getElementById("timer").innerHTML = "HARI BAHAGIA TELAH TIBA";
+            }
         }, 1000);
     </script>
 </body>
