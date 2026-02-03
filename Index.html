@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Ghali & Lili</title>
+    <title>The Wedding of Ghali & Lili</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Amiri&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cream: #fdfaf0;
+            --cream: #fdfaf4;
             --gold: #b8926a;
             --dark: #4a4a4a;
         }
@@ -17,19 +17,25 @@
             font-family: 'Montserrat', sans-serif; 
             color: var(--dark); 
             background-color: var(--cream); 
-            overflow-x: hidden;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Background Pattern Global */
-        .bg-pattern {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/batik-fractal.png');
-            opacity: 0.05;
-            pointer-events: none;
+        /* Dekorasi Sunda Bergerak */
+        .ornament-floating {
+            position: absolute;
+            width: 120px;
+            opacity: 0.2;
             z-index: 1;
+            animation: float 6s ease-in-out infinite;
         }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .megamendung { top: 5%; left: -30px; width: 200px; opacity: 0.15; }
+        .wayang-ornament { bottom: 10%; right: 5%; width: 100px; filter: sepia(100%) saturate(200%) brightness(80%); }
 
         section { 
             min-height: 100vh; 
@@ -38,214 +44,175 @@
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            padding: 40px 20px; 
+            padding: 60px 20px; 
             position: relative;
-            background-color: var(--cream);
-            overflow: hidden;
         }
 
-        /* Ornamen Sunda Bergerak */
-        .ornamen {
-            position: absolute;
-            width: 80px;
-            opacity: 0.2;
-            z-index: 2;
-            animation: floating 5s ease-in-out infinite;
-        }
-        @keyframes floating {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .kujang { top: 10%; right: 5%; width: 60px; }
-        .megamendung { bottom: 5%; left: -20px; width: 150px; opacity: 0.1; }
-        .wayang { bottom: 10%; right: 2%; width: 120px; opacity: 0.15; }
-
-        h1, h2 { font-family: 'Great Vibes', cursive; color: var(--gold); position: relative; z-index: 3; }
+        h1, h2 { font-family: 'Great Vibes', cursive; color: var(--gold); }
         h1 { font-size: clamp(3rem, 10vw, 4.5rem); }
         h2 { font-size: clamp(2rem, 6vw, 2.8rem); margin-bottom: 20px; }
 
         /* Slide 1: Cover */
-        .cover-img {
-            width: 250px; height: 350px;
-            background: #e0e0e0 url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069') center/cover;
-            border-radius: 150px 150px 0 0;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+        #cover {
+            background: linear-gradient(rgba(253, 250, 244, 0.6), rgba(253, 250, 244, 0.6)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070');
+            background-size: cover; background-position: center;
         }
+        .date-badge { font-weight: 600; letter-spacing: 5px; color: var(--gold); border: 2px solid var(--gold); padding: 10px 25px; margin-top: 20px; }
 
-        /* Slide 2: Quran */
-        .arabic { font-family: 'Amiri', serif; font-size: 1.6rem; line-height: 3rem; direction: rtl; color: var(--gold); margin-bottom: 15px; z-index: 3; }
-        .translation { font-style: italic; font-size: 0.9rem; max-width: 600px; padding: 0 15px; z-index: 3; }
+        /* Slide 2: Ar-Rum */
+        .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; color: var(--gold); z-index: 2; }
+        .translation { font-style: italic; font-size: 0.9rem; max-width: 600px; line-height: 1.8; z-index: 2; }
 
-        /* Slide 4: Event Split */
+        /* Slide 3: Mempelai */
+        .mempelai-name { font-size: 2.5rem; font-family: 'Great Vibes'; color: var(--gold); }
+        .parents { font-size: 0.85rem; margin-bottom: 25px; }
+
+        /* Slide 4: Info Event Split */
         .event-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            max-width: 1000px;
-            z-index: 3;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            z-index: 2;
         }
-        .event-card {
-            background: rgba(255,255,255,0.5);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--gold);
+        .event-box {
             flex: 1;
             min-width: 300px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            border: 1px solid var(--gold);
         }
+        .qr-code { width: 120px; height: 120px; margin-top: 20px; border: 1px solid #eee; }
 
-        /* Bank Section */
-        .bank-item {
-            display: flex; align-items: center; background: white;
-            padding: 15px; border-radius: 12px; margin-bottom: 15px; gap: 15px;
-            border: 1px solid #eee; text-align: left;
+        /* Bank Items */
+        .bank-card {
+            background: white; padding: 20px; border-radius: 12px; margin: 10px;
+            width: 100%; max-width: 350px; border: 1px solid #ddd;
         }
-        .bank-logo { width: 80px; height: 35px; object-fit: contain; }
+        .bank-logo { height: 40px; margin-bottom: 10px; object-fit: contain; }
 
         /* Countdown */
-        #timer { display: flex; gap: 10px; z-index: 3; }
-        .timer-unit { background: var(--gold); color: white; padding: 15px; border-radius: 10px; min-width: 70px; }
-        .timer-num { display: block; font-size: 1.5rem; font-weight: 600; }
+        .timer-box { display: flex; gap: 15px; margin-top: 30px; z-index: 2; }
+        .timer-item { background: var(--gold); color: white; padding: 15px; border-radius: 10px; min-width: 70px; }
+        .timer-val { display: block; font-size: 1.5rem; font-weight: 600; }
 
-        .btn {
-            background: var(--gold); color: white; padding: 12px 30px;
-            border-radius: 25px; text-decoration: none; font-size: 0.8rem;
-            font-weight: 600; border: none; cursor: pointer; z-index: 10;
-        }
-
-        /* Overlay */
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--cream); z-index: 1000;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-        }
+        /* Buttons & Overlay */
+        .btn { background: var(--gold); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; border: none; cursor: pointer; font-weight: 600; margin-top: 20px; display: inline-block; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; }
     </style>
 </head>
 <body>
 
-    <div class="bg-pattern"></div>
-
     <div id="overlay">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kujang_of_Sunda.png" style="width: 60px; margin-bottom: 20px; opacity: 0.6;">
-        <h1>Ghali & Lili</h1>
+        <h2 style="font-size: 3.5rem;">Ghali & Lili</h2>
         <p style="letter-spacing: 3px; margin: 20px 0;">14 FEBRUARI 2026</p>
-        <button onclick="startApp()" class="btn">BUKA UNDANGAN</button>
+        <button class="btn" onclick="openInvitation()">BUKA UNDANGAN</button>
     </div>
 
-    <audio id="bgMusic" loop>
+    <audio id="invitationMusic" loop>
         <source src="https://www.tanzil.net/res/audio/afasy/030021.mp3" type="audio/mpeg">
     </audio>
 
-    <section>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kujang_of_Sunda.png" class="ornamen kujang">
-        <div class="cover-img"></div>
-        <p style="letter-spacing: 5px; font-weight: 300;">THE WEDDING OF</p>
+    <section id="cover">
+        <img src="https://png.pngtree.com/png-vector/20231201/ourmid/pngtree-indonesian-batik-mega-mendung-pattern-png-image_10793665.png" class="ornament-floating megamendung">
+        <p style="letter-spacing: 5px;">SAMPURASUN</p>
         <h1>Ghali & Lili</h1>
-        <div style="color: var(--gold); font-weight: 600; margin-top: 10px;">14 . 02 . 2026</div>
+        <div class="date-badge">14 . 02 . 2026</div>
+        <img src="https://www.pngwing.com/en/free-png-acfto" class="ornament-floating wayang-ornament">
     </section>
 
     <section>
-        <div class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ Lِّقَوْمٍ يَّتَفَكَّرُوْنَ</div>
-        <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." (QS. Ar-Rum: 21)</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Wayang_Golek_Purwa.png/320px-Wayang_Golek_Purwa.png" class="ornamen wayang">
+        <img src="https://png.pngtree.com/png-vector/20231201/ourmid/pngtree-indonesian-batik-mega-mendung-pattern-png-image_10793665.png" class="ornament-floating megamendung" style="left: auto; right: -30px; top: 50%;">
+        <div class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</div>
+        <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." (QS. Ar-Rum: 21)</p>
     </section>
 
     <section>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kujang_of_Sunda.png" class="ornamen kujang" style="left: 5%; top: 5%;">
-        <p style="max-width: 500px; margin-bottom: 30px; line-height: 1.8; z-index: 3;">
-            Assalamu'alaikum Wr. Wb.<br>
-            Sampurasun. Memohon rahmat dan ridho Allah SWT, kami ingin mengundang Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan kami:
-        </p>
-        <h2 style="font-size: 2.5rem;">Ghali Iftikhari</h2>
-        <p style="margin-bottom: 20px;">Putra Pertama Bpk. Ismail Effendy & Ibu Mahya Hidayati</p>
-        <h2 style="font-family: 'Great Vibes';">&</h2>
-        <h2 style="font-size: 2.5rem;">Lili Vidia</h2>
-        <p>Putri Kedua (Alm) Bpk. Holidin & Ibu Martini</p>
+        <img src="https://www.pngwing.com/en/free-png-acfto" class="ornament-floating wayang-ornament" style="left: 5%; bottom: 10%; transform: scaleX(-1);">
+        <p style="max-width: 600px; margin-bottom: 40px; line-height: 1.8;">Bismillahirrahmannirrahim,<br>Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang Bapak/Ibu/Saudara/i untuk hadir dalam resepsi pernikahan kami:</p>
+        
+        <div class="mempelai-name">Ghali Iftikhari</div>
+        <p class="parents">Anak pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
+        
+        <h2 style="font-size: 2rem; margin: 10px 0;">&</h2>
+        
+        <div class="mempelai-name">Lili Vidia</div>
+        <p class="parents">Anak Kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
     </section>
 
     <section>
         <div class="event-container">
-            <div class="event-card">
+            <div class="event-box">
                 <h3 style="color: var(--gold); letter-spacing: 2px;">AKAD NIKAH</h3>
-                <hr style="margin: 15px 0; border: 0.5px solid var(--gold); opacity: 0.3;">
-                <p>Sabtu, 14 Februari 2026</p>
-                <p>08:00 - Selesai</p>
-                <p style="font-weight: 600; margin-top: 10px;">Masjid Jami Thoriqul Jannah</p>
-                <p>Kab. Bandung, Jawa Barat</p>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" class="barcode" alt="QR Akad">
+                <p style="margin: 15px 0;">Sabtu, 14 Februari 2026<br>08:00 - Selesai</p>
+                <p><strong>Masjid Jami Thoriqul Jannah</strong><br>Kab. Bandung, Jawa Barat</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Masjid+Jami+Thoriqul+Jannah+Bandung" class="qr-code">
             </div>
 
-            <div class="event-card">
+            <div class="event-box">
                 <h3 style="color: var(--gold); letter-spacing: 2px;">RESEPSI NIKAH</h3>
-                <hr style="margin: 15px 0; border: 0.5px solid var(--gold); opacity: 0.3;">
-                <p>Sabtu, 14 Februari 2026</p>
-                <p>11:00 - Selesai</p>
-                <p style="font-weight: 600; margin-top: 10px;">Waroeng Mas Pri</p>
-                <p>Soreang, Kab Bandung, Jawa Barat</p>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" class="barcode" alt="QR Resepsi">
+                <p style="margin: 15px 0;">Sabtu, 14 Februari 2026<br>11:00 - Selesai</p>
+                <p><strong>Waroeng Mas Pri</strong><br>Soreang, Kab Bandung, Jawa barat</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Waroeng+Mas+Pri+Soreang" class="qr-code">
             </div>
         </div>
     </section>
 
     <section>
-        <h2 style="margin-bottom: 30px;">Kado Digital</h2>
-        <div style="width: 100%; max-width: 400px; z-index: 3;">
-            <div class="bank-item">
-                <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" class="bank-logo">
-                <div>
-                    <p style="font-weight: 600;">OCBC NISP</p>
-                    <p>6938-1425-6394</p>
-                    <p style="font-size: 0.8rem;">a.n GHALI IFTIKHARI</p>
-                </div>
-            </div>
-            <div class="bank-item">
-                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/f/fa/Bank_Mandiri_logo.svg/1200px-Bank_Mandiri_logo.svg.png" class="bank-logo">
-                <div>
-                    <p style="font-weight: 600;">Bank Mandiri</p>
-                    <p>1300016257308</p>
-                    <p style="font-size: 0.8rem;">a.n LILI VIDIA</p>
-                </div>
-            </div>
-            <p style="margin: 20px 0;">Konfirmasi Kehadiran:</p>
-            <a href="https://wa.me/6281395559907" class="btn" style="background: #25d366;">WhatsApp Konfirmasi</a>
+        <img src="https://png.pngtree.com/png-vector/20231201/ourmid/pngtree-indonesian-batik-mega-mendung-pattern-png-image_10793665.png" class="ornament-floating megamendung" style="top: -10px;">
+        <h2>Amplop Digital</h2>
+        <div class="bank-card">
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" class="bank-logo">
+            <p><strong>6938-1425-6394</strong></p>
+            <p>a.n GHALI IFTIKHARI</p>
         </div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Mega_mendung_pattern_2.png" class="ornamen megamendung">
+        <div class="bank-card">
+            <img src="https://upload.wikimedia.org/wikipedia/id/thumb/f/fa/Bank_Mandiri_logo.svg/1200px-Bank_Mandiri_logo.svg.png" class="bank-logo">
+            <p><strong>1300016257308</strong></p>
+            <p>a.n LILI VIDIA</p>
+        </div>
+
+        <p style="margin-top: 30px;">Konfirmasi Kehadiran:</p>
+        <a href="https://wa.me/6281395559907" class="btn" style="background: #25d366;">WhatsApp Kami</a>
     </section>
 
     <section>
-        <h2 style="margin-bottom: 30px;">Menuju Hari Bahagia</h2>
-        <div id="timer">
-            <div class="timer-unit"><span id="days" class="timer-num">00</span><small>Hari</small></div>
-            <div class="timer-unit"><span id="hours" class="timer-num">00</span><small>Jam</small></div>
-            <div class="timer-unit"><span id="minutes" class="timer-num">00</span><small>Menit</small></div>
-            <div class="timer-unit"><span id="seconds" class="timer-num">00</span><small>Detik</small></div>
+        <p style="letter-spacing: 4px;">MENGHITUNG HARI</p>
+        <div class="timer-box" id="timer">
+            <div class="timer-item"><span class="timer-val" id="days">00</span>Hari</div>
+            <div class="timer-item"><span class="timer-val" id="hours">00</span>Jam</div>
+            <div class="timer-item"><span class="timer-val" id="minutes">00</span>Menit</div>
+            <div class="timer-item"><span class="timer-val" id="seconds">00</span>Detik</div>
         </div>
-        <p style="margin-top: 40px; font-family: 'Great Vibes'; font-size: 2rem;">Hatur Nuhun</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kujang_of_Sunda.png" class="ornamen kujang" style="bottom: 10%; left: 5%;">
+        <p style="margin-top: 50px; font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold);">Hatur Nuhun</p>
     </section>
 
     <script>
-        function startApp() {
+        function openInvitation() {
             document.getElementById('overlay').style.display = 'none';
-            document.getElementById('bgMusic').play();
+            document.getElementById('invitationMusic').play();
         }
 
         // Countdown Logic
-        const target = new Date("Feb 14, 2026 08:00:00").getTime();
+        const weddingDate = new Date("Feb 14, 2026 08:00:00").getTime();
         
-        setInterval(() => {
+        setInterval(function() {
             const now = new Date().getTime();
-            const diff = target - now;
+            const diff = weddingDate - now;
             
-            if (diff > 0) {
-                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
-            }
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h;
+            document.getElementById("minutes").innerText = m;
+            document.getElementById("seconds").innerText = s;
         }, 1000);
     </script>
 </body>
