@@ -1,214 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Pernikahan Ghali & Lili</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Ghali & Lili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Amiri&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #fdfaf4;
+            --gold: #b8926a;
+            --dark: #4a4a4a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--dark); background-color: white; scroll-behavior: smooth; }
+        
+        section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; }
+        .bg-cream { background-color: var(--cream); }
+        
+        h1, h2 { font-family: 'Great Vibes', cursive; color: var(--gold); }
+        h1 { font-size: clamp(3rem, 10vw, 4.5rem); margin: 10px 0; }
+        h2 { font-size: clamp(2.5rem, 8vw, 3rem); margin-bottom: 20px; }
 
-<style>
-body{
-  margin:0;
-  font-family: 'Georgia', serif;
-  background:#f6f1e7;
-  scroll-behavior:smooth;
-}
+        /* Slide 1: Cover */
+        #cover {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070');
+            background-size: cover; background-position: center; color: white;
+        }
+        .date-box { font-size: 1.2rem; letter-spacing: 5px; border-top: 1px solid white; border-bottom: 1px solid white; padding: 10px 20px; margin-top: 20px; }
 
-.slide{
-  min-height:100vh;
-  padding:40px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:#f6f1e7;
-  position:relative;
-}
+        /* Slide 2: Ar-Rum */
+        .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; line-height: 3.5rem; direction: rtl; margin-bottom: 20px; color: var(--gold); }
+        .translation { font-style: italic; font-size: 0.95rem; max-width: 650px; line-height: 1.8; }
 
-.ornamen{
-  position:absolute;
-  opacity:0.15;
-}
+        /* Mempelai */
+        .mempelai-name { font-size: 2.8rem; font-family: 'Great Vibes'; color: var(--gold); margin-bottom: 5px; }
+        .parents { font-size: 0.85rem; font-weight: 300; margin-bottom: 30px; }
 
-.megamendung{
-  top:10px;
-  left:10px;
-  width:200px;
-}
+        /* Card & Barcode */
+        .card { background: white; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); width: 100%; max-width: 450px; margin-bottom: 20px; }
+        .barcode { width: 140px; height: 140px; margin: 25px 0; border: 1px solid #eee; padding: 5px; }
+        .btn { display: inline-block; background: var(--gold); color: white; text-decoration: none; padding: 12px 35px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; }
 
-.wayang{
-  bottom:10px;
-  right:10px;
-  width:180px;
-}
+        /* Amplop Digital */
+        .bank-item { display: flex; align-items: center; text-align: left; background: #fafafa; padding: 15px; border-radius: 12px; margin-bottom: 15px; gap: 15px; border: 1px solid #eee; }
+        .bank-logo { width: 80px; height: auto; max-height: 40px; object-fit: contain; }
+        .bank-details p { font-size: 0.85rem; line-height: 1.4; }
 
-h1{font-size:40px;margin:10px;}
-h2{margin:5px;}
-p{max-width:700px;}
+        /* Countdown */
+        #timer { display: flex; gap: 10px; margin-top: 30px; }
+        .timer-unit { background: var(--gold); color: white; padding: 15px; border-radius: 12px; min-width: 70px; }
+        .timer-num { display: block; font-size: 1.5rem; font-weight: 600; }
+        .timer-label { font-size: 0.6rem; text-transform: uppercase; }
 
-.card{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.box{
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  width:320px;
-}
-
-.countdown{
-  font-size:28px;
-  font-weight:bold;
-}
-
-img.logo{
-  width:120px;
-}
-
-button{
-  padding:10px 18px;
-  border:none;
-  background:#8b6f47;
-  color:white;
-  border-radius:6px;
-}
-</style>
+        /* Overlay */
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.8s; }
+    </style>
 </head>
-
 <body>
 
-<!-- SLIDE 1 -->
-<section class="slide">
-<img class="ornamen megamendung" src="https://padiumkm.id/product/batik-cirebon-mega-mendung/643527185029bbe4b23e1f9b?srsltid=AfmBOopBt4w4o2GdFlgYsxX4pjiQfDn7zmdygsN4sSdqn0zyDCskcTBP">
-<img class="ornamen wayang" src="https://www.pngwing.com/en/free-png-acfto">
+    <div id="overlay">
+        <h1 style="font-size: 3rem; margin-bottom: 10px;">Ghali & Lili</h1>
+        <p style="letter-spacing: 3px; margin-bottom: 30px;">14 FEBRUARI 2026</p>
+        <button onclick="startApp()" class="btn">BUKA UNDANGAN</button>
+    </div>
 
-<img src="https://dummyimage.com/300x300/e8dfcf/000&text=Ghali+%26+Lili" style="border-radius:12px">
+    <audio id="bgMusic" loop>
+        <source src="https://www.tanzil.net/res/audio/afasy/030021.mp3" type="audio/mpeg">
+    </audio>
 
-<h1>14 Februari 2026</h1>
-<h2>Undangan Pernikahan</h2>
-</section>
+    <section id="cover">
+        <p style="letter-spacing: 4px; font-weight: 300;">THE WEDDING OF</p>
+        <h1>Ghali & Lili</h1>
+        <div class="date-box">14 . 02 . 2026</div>
+    </section>
 
-<!-- SLIDE 2 -->
-<section class="slide">
+    <section>
+        <div class="arabic">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</div>
+        <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." (QS. Ar-Rum: 21)</p>
+    </section>
 
-<audio autoplay controls>
-<source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/030021.mp3">
-</audio>
+    <section>
+        <p style="font-size: 0.9rem; max-width: 550px; line-height: 1.8; margin-bottom: 40px;">Assalamu’alaikum Warahmatullahi Wabarakatuh.<br><br>Dengan memohon rahmat dan ridho Allah SWT, kami ingin mengundang bapak dan ibu untuk hadir dalam resepsi pernikahan kami:</p>
+        
+        <div class="mempelai-name">Ghali Iftikhari</div>
+        <p class="parents">Anak pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
+        
+        <p style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold); margin: 10px 0;">&</p>
+        
+        <div class="mempelai-name">Lili Vidia</div>
+        <p class="parents">Anak Kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
+    </section>
 
-<h2>QS. Ar-Rum : 21</h2>
+    <section class="bg-cream">
+        <div class="card">
+            <h3 style="letter-spacing: 3px; font-weight: 600;">AKAD NIKAH</h3>
+            <p style="margin: 20px 0;">Sabtu, 14 Februari 2026<br>08:00 - Selesai</p>
+            <p><strong>Masjid Jami Thoriqul Jannah</strong><br>Kab. Bandung, Jawa Barat</p>
+            
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" class="barcode" alt="QR Akad">
+            <br>
+            <a href="https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah+Bandung" target="_blank" class="btn">LIHAT LOKASI</a>
+        </div>
+    </section>
 
-<p dir="rtl">
-وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
-لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
-</p>
+    <section class="bg-cream">
+        <div class="card">
+            <h3 style="letter-spacing: 3px; font-weight: 600;">RESEPSI</h3>
+            <p style="margin: 20px 0;">Sabtu, 14 Februari 2026<br>11:00 - Selesai</p>
+            <p><strong>Waroeng Mas Pri</strong><br>Soreang, Kab Bandung, Jawa barat</p>
+            
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" class="barcode" alt="QR Resepsi">
+            <br>
+            <a href="https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang" target="_blank" class="btn">LIHAT LOKASI</a>
+        </div>
+    </section>
 
-<p>
-"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan
-untukmu pasangan hidup dari jenismu sendiri..."
-</p>
+    <section class="bg-cream">
+        <h2>Amplop Digital</h2>
+        <p style="font-size: 0.9rem; margin-bottom: 25px;">Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, dapat melalui:</p>
+        
+        <div class="card">
+            <div class="bank-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg" class="bank-logo" alt="Logo OCBC">
+                <div class="bank-details">
+                    <p><strong>Bank OCBC NISP</strong></p>
+                    <p>6938-1425-6394</p>
+                    <p>a.n GHALI IFTIKHARI</p>
+                </div>
+            </div>
+            
+            <div class="bank-item">
+                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/f/fa/Bank_Mandiri_logo.svg/1200px-Bank_Mandiri_logo.svg.png" class="bank-logo" alt="Logo Mandiri">
+                <div class="bank-details">
+                    <p><strong>Bank Mandiri</strong></p>
+                    <p>1300016257308</p>
+                    <p>a.n LILI VIDIA</p>
+                </div>
+            </div>
 
-</section>
+            <hr style="margin: 25px 0; border: 0; border-top: 1px solid #eee;">
+            <p style="margin-bottom: 15px; font-weight: 600;">Konfirmasi Kehadiran</p>
+            <a href="https://wa.me/6281395559907?text=Halo+Ghali+Lili,+Saya+ingin+konfirmasi+kehadiran" class="btn" style="background:#25D366;">WHATSAPP KONFIRMASI</a>
+        </div>
+    </section>
 
-<!-- SLIDE 3 -->
-<section class="slide">
+    <section class="bg-cream">
+        <p style="letter-spacing: 3px;">MENGHITUNG HARI</p>
+        <div id="timer">
+            <div class="timer-unit"><span id="days" class="timer-num">00</span><span class="timer-label">Hari</span></div>
+            <div class="timer-unit"><span id="hours" class="timer-num">00</span><span class="timer-label">Jam</span></div>
+            <div class="timer-unit"><span id="minutes" class="timer-num">00</span><span class="timer-label">Menit</span></div>
+            <div class="timer-unit"><span id="seconds" class="timer-num">00</span><span class="timer-label">Detik</span></div>
+        </div>
+        <p style="margin-top: 50px; font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold);">Sampai Jumpa!</p>
+    </section>
 
-<h2>
-Dengan memohon rahmat dan ridho Allah SWT,
-kami mengundang Bapak/Ibu untuk hadir
-dalam resepsi pernikahan kami
-</h2>
+    <script>
+        function startApp() {
+            document.getElementById('overlay').style.opacity = '0';
+            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 800);
+            document.getElementById('bgMusic').play();
+        }
 
-<h1>Ghali Iftikhari</h1>
-<p>Anak pertama dari Bpk Ismail Effendy & Ibu Mahya Hidayati</p>
+        const weddingDate = new Date("Feb 14, 2026 08:00:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-<h1>Lili Vidia</h1>
-<p>Anak Kedua dari (Alm) Bpk Holidin & Ibu Martini</p>
-
-</section>
-
-<!-- SLIDE 4 -->
-<section class="slide">
-<div class="card">
-
-<div class="box">
-<h2>AKAD NIKAH</h2>
-<p>Sabtu, 14 Februari 2026</p>
-<p>08:00 - Selesai</p>
-<p>Masjid Jami Thoriqul Jannah</p>
-<p>Kab. Bandung</p>
-
-<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://maps.google.com/?q=Masjid+Jami+Thoriqul+Jannah">
-</div>
-
-<div class="box">
-<h2>RESEPSI</h2>
-<p>Sabtu, 14 Februari 2026</p>
-<p>11:00 - Selesai</p>
-<p>Waroeng Mas Pri</p>
-<p>Soreang, Kab Bandung</p>
-
-<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://maps.google.com/?q=Waroeng+Mas+Pri+Soreang">
-</div>
-
-</div>
-</section>
-
-<!-- SLIDE 5 -->
-<section class="slide">
-
-<h2>Amplop Digital</h2>
-
-<div class="card">
-
-<div class="box">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/en/5/55/OCBC_NISP_logo.svg">
-<p>6938-1425-6394</p>
-<p>a.n Ghali Iftikhari</p>
-</div>
-
-<div class="box">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg">
-<p>1300016257308</p>
-<p>a.n Lili Vidia</p>
-</div>
-
-</div>
-
-<p>Konfirmasi Kehadiran</p>
-<a href="https://wa.me/6281395559907">
-<button>WhatsApp</button>
-</a>
-
-</section>
-
-<!-- SLIDE 6 -->
-<section class="slide">
-<h2>Countdown Akad Nikah</h2>
-<div id="countdown" class="countdown"></div>
-</section>
-
-<script>
-var countDownDate = new Date("Feb 14, 2026 08:00:00").getTime();
-
-var x = setInterval(function() {
-var now = new Date().getTime();
-var distance = countDownDate - now;
-
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-var seconds = Math.floor((distance % (1000*60))/1000);
-
-document.getElementById("countdown").innerHTML =
-days + " Hari " + hours + " Jam "
-+ minutes + " Menit " + seconds + " Detik ";
-
-}, 1000);
-</script>
-
+            document.getElementById("days").innerText = d < 10 ? "0"+d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0"+h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0"+m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0"+s : s;
+        }, 1000);
+    </script>
 </body>
 </html>
